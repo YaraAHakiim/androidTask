@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         prepareRecyclerView();
 
 
+
     }
 
     private void prepareMovieData() {
@@ -111,8 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-
-                
+                adapter.onItemRemove(viewHolder,recyclerView);
             }
 
             @Override
@@ -138,7 +138,8 @@ public class MainActivity extends AppCompatActivity {
                         c.drawBitmap(icon,null,icon_dest,p);
 
                     }
-                    else if (dX < 0) {
+                    else if (dX < 0)
+                    {
                         p.setColor(Color.parseColor("#D32F2F"));
                         RectF background = new RectF((float) itemView.getRight() + dX, (float) itemView.getTop(), (float) itemView.getRight(), (float) itemView.getBottom());
                         c.drawRect(background, p);
